@@ -127,3 +127,33 @@ footer {
   background: #420D09;
   color: #fff;
 }
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 998;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/* Perbaikan sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #420D09;
+  color: #fff;
+  padding-top: 60px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
