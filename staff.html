@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-key="pageTitle">Pengelola</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo De Yuwa" class="logo">
+    <h1 class="brand">De Yuwa</h1>
+  </div>
+  <div class="lang-flag">
+    <button class="lang-btn" data-lang="id">🇮🇩</button>
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" data-lang="vn">🇻🇳</button>
+  </div>
+  <a href="index.html" class="back-link">⬅ <span data-key="back">Kembali</span></a>
+</header>
+
+<main>
+<section class="content">
+  <h2 data-key="sectionTitle">Pengelola</h2>
+  <p data-key="desc">Sesaat lagi…</p>
+</section>
+</main>
+
+<footer><p>© 2025 PT Sinar Langit Hanoi</p></footer>
+
+<script>
+const translations={
+ id:{pageTitle:"Pengelola",back:"Kembali",sectionTitle:"Pengelola",desc:"Sesaat lagi…"},
+ en:{pageTitle:"Our Team",back:"Back",sectionTitle:"Our Team",desc:"Coming soon…"},
+ vn:{pageTitle:"Nhân sự",back:"Quay lại",sectionTitle:"Nhân sự",desc:"Sẽ đến sớm…"}
+};
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+  const l=btn.dataset.lang;
+  document.querySelectorAll('[data-key]').forEach(e=>e.textContent=translations[l][e.dataset.key]);
+ });
+});
+</script>
+</body>
+</html>
