@@ -13,6 +13,7 @@ body {
 }
 
 /* Header */
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -20,23 +21,28 @@ header {
   padding: 15px 20px;
   border-bottom: 2px solid #420D09;
   position: relative;
-  z-index: 1001; /* selalu di atas overlay */
+  z-index: 1001;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 18px; /* Tambah jarak antar logo dan teks */
 }
 
 .logo {
-  height: 115px;
-  margin-right: 5px;
+  height: 100px; /* Logo besar, bisa diubah sesuai gambar kamu */
+  width: auto;
+  display: block;
 }
 
 .brand {
-  font-size: 1.8rem;
+  font-size: 2.3rem; /* Besarin dikit biar seimbang sama logo */
   font-weight: bold;
   color: #420D09;
+  line-height: 1.1;
+  display: flex;
+  align-items: center; /* Biar selalu sejajar tengah */
 }
 
 .lang-flag .flag {
