@@ -27,10 +27,10 @@
   <!-- Sidebar Menu -->
   <nav class="sidebar" id="sidebar">
     <ul>
-      <li><a href="about.html">Tentang Kami</a></li>
-      <li><a href="vision.html">Visi - Misi</a></li>
-      <li><a href="contact.html">Narahubung</a></li>
-      <li><a href="staff.html">Pengelola</a></li>
+      <li><a href="about.html" data-key="about">Tentang Kami</a></li>
+      <li><a href="vision.html" data-key="vision">Visi - Misi</a></li>
+      <li><a href="contact.html" data-key="contact">Narahubung</a></li>
+      <li><a href="staff.html" data-key="staff">Pengelola</a></li>
     </ul>
   </nav>
 
@@ -38,9 +38,7 @@
   <main>
     <section class="hero">
       <h2 data-key="welcome">Selamat Datang di website De Yuwa</h2>
-      <p data-key="desc"> 
-        sesaat lagi ! 
-      </p>
+      <p data-key="desc">sesaat lagi !</p>
     </section>
   </main>
 
@@ -101,7 +99,7 @@
       }
     };
 
-    // Ganti bahasa
+    // Ganti bahasa SEMUA elemen yg punya data-key
     const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach(btn => {
       btn.addEventListener('click', () => {
