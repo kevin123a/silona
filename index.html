@@ -8,36 +8,65 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="navbar">
+  <header>
     <div class="logo-container">
       <img src="logo.png" alt="Logo De Yuwa" class="logo">
-      <span class="brand">De Yuwa</span>
+      <h1 class="brand">De Yuwa</h1>
     </div>
-    <nav class="menu">
-      <a href="comingsoon.html">Tentang Kami</a>
-      <a href="comingsoon.html">Visi Misi</a>
-      <a href="comingsoon.html">Narahubung</a>
-      <a href="comingsoon.html">Staff</a>
-    </nav>
-    <div class="lang-switch">
-      <button>🇮🇩</button>
-      <button>🇬🇧</button>
-      <button>🇻🇳</button>
+    <div class="lang-flag">
+      <img src="flag-id.png" alt="Indonesia" class="flag">
     </div>
+    <button class="menu-toggle">☰</button>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Selamat Datang di De Yuwa</h1>
-      <p>Anak Perusahaan PT Sinar Langit Hanoi di Indonesia</p>
-      <p class="tagline">"Membangun Masa Depan dengan Semangat & Keunggulan"</p>
-    </div>
-  </section>
+  <!-- Sidebar Menu -->
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#">Tentang Kami</a></li>
+      <li><a href="#">Visi - Misi</a></li>
+      <li><a href="#">Narahubung</a></li>
+      <li><a href="#">Pengelola</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content -->
+  <main>
+    <section class="hero">
+      <h2>Selamat Datang di De Yuwa</h2>
+      <p>
+        De Yuwa adalah anak perusahaan PT Sinar Langit Hanoi di Indonesia.  
+        Sebuah merek yang lahir dari semangat kolaborasi,  
+        inovasi, dan keberanian untuk menghadirkan solusi strategis  
+        demi kejayaan bangsa dan masyarakat.
+      </p>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 De Yuwa - PT Sinar Langit Hanoi</p>
+  <footer>
+    <div class="lang-switch">
+      <button>ID</button>
+      <button>EN</button>
+      <button>VN</button>
+    </div>
+    <p>© 2025 PT Sinar Langit Hanoi</p>
   </footer>
+
+  <script>
+    // Menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('#sidebar');
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    // Tombol sementara "Sesaat lagi"
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        alert("Sesaat lagi...");
+      });
+    });
+  </script>
 </body>
 </html>
