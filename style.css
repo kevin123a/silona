@@ -1,0 +1,68 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Garamond', serif;
+  background-color: #ffffff; /* putih elegan */
+  color: #420D09; /* maroon */
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.subtitle span {
+  color: #B8860B; /* aksen emas */
+  font-weight: bold;
+}
+
+/* About Section */
+.about {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #B8860B;
+}
+
+.about p {
+  font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #f1f1f1;
+  font-size: 0.9rem;
+  color: #555;
+}
