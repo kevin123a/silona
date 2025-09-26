@@ -1,68 +1,129 @@
-/* Global Reset */
+/* Global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Garamond", serif;
 }
 
 body {
-  font-family: 'Garamond', serif;
-  background-color: #ffffff; /* putih elegan */
-  color: #420D09; /* maroon */
+  background-color: #fff;
+  color: #420D09; /* Maroon text */
   line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 2px solid #420D09;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #420D09;
+}
+
+.lang-flag .flag {
+  height: 25px;
+  margin-right: 10px;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #420D09;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #420D09;
+  color: #fff;
+  padding-top: 60px;
+  transition: right 0.3s ease;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px 20px;
+  transition: background 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+  padding: 60px 20px;
 }
 
-.logo {
-  width: 120px;
-  margin-bottom: 20px;
-}
-
-.title {
+.hero h2 {
   font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  font-style: italic;
-}
-
-.subtitle span {
-  color: #B8860B; /* aksen emas */
-  font-weight: bold;
-}
-
-/* About Section */
-.about {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 20px;
-  text-align: center;
-}
-
-.about h3 {
-  font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #B8860B;
 }
 
-.about p {
-  font-size: 1.1rem;
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* Footer */
-.footer {
+footer {
   text-align: center;
   padding: 20px;
-  background: #f1f1f1;
-  font-size: 0.9rem;
-  color: #555;
+  border-top: 2px solid #420D09;
+  margin-top: 40px;
+}
+
+.lang-switch button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #420D09;
+  background: #fff;
+  color: #420D09;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lang-switch button:hover {
+  background: #420D09;
+  color: #fff;
 }
