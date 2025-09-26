@@ -1,45 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-key="pageTitle">Visi & Misi</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Visi & Misi - Eucherius Familly</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <img src="logo.png" alt="Logo De Yuwa" class="logo">
-    <h1 class="brand">De Yuwa</h1>
-  </div>
-  <div class="lang-flag">
-    <button class="lang-btn" data-lang="id">🇮🇩</button>
-    <button class="lang-btn" data-lang="en">🇬🇧</button>
-    <button class="lang-btn" data-lang="vn">🇻🇳</button>
-  </div>
-  <a href="index.html" class="back-link">⬅ <span data-key="back">Kembali</span></a>
-</header>
-
-<main>
-<section class="content">
-  <h2 data-key="sectionTitle">Visi & Misi</h2>
-  <p data-key="desc">Sesaat lagi…</p>
-</section>
-</main>
-
-<footer><p>© 2025 PT Sinar Langit Hanoi</p></footer>
-
-<script>
-const translations={
- id:{pageTitle:"Visi & Misi",back:"Kembali",sectionTitle:"Visi & Misi",desc:"Sesaat lagi…"},
- en:{pageTitle:"Vision & Mission",back:"Back",sectionTitle:"Vision & Mission",desc:"Coming soon…"},
- vn:{pageTitle:"Tầm nhìn & Sứ mệnh",back:"Quay lại",sectionTitle:"Tầm nhìn & Sứ mệnh",desc:"Sẽ đến sớm…"}
-};
-document.querySelectorAll('.lang-btn').forEach(btn=>{
- btn.addEventListener('click',()=>{
-  const l=btn.dataset.lang;
-  document.querySelectorAll('[data-key]').forEach(e=>e.textContent=translations[l][e.dataset.key]);
- });
-});
-</script>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo Eucherius Familly" class="logo">
+      <h1 class="brand">Visi & Misi</h1>
+    </div>
+    <a href="index.html" class="menu-toggle" style="text-decoration:none;">←</a>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Vision </h2>
+      <p>sesaat lagi</p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 PT Sinar Langit Hanoi</p>
+  </footer>
 </body>
 </html>
