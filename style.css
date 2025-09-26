@@ -19,6 +19,8 @@ header {
   align-items: center;
   padding: 15px 20px;
   border-bottom: 2px solid #420D09;
+  position: relative;
+  z-index: 1001; /* selalu di atas overlay */
 }
 
 .logo-container {
@@ -48,19 +50,21 @@ header {
   border: none;
   cursor: pointer;
   color: #420D09;
+  z-index: 1002; /* tombol selalu bisa diklik */
 }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -250px;
+  right: -250px; /* hidden by default */
   width: 250px;
   height: 100%;
   background: #420D09;
   color: #fff;
   padding-top: 60px;
   transition: right 0.3s ease;
+  z-index: 1001;
 }
 
 .sidebar.active {
@@ -88,6 +92,22 @@ header {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 1000;
+}
+
+.overlay.show {
+  display: block;
+}
+
 /* Hero Section */
 .hero {
   text-align: center;
@@ -113,6 +133,7 @@ footer {
   margin-top: 40px;
 }
 
+/* Language switch */
 .lang-switch button {
   margin: 0 5px;
   padding: 5px 10px;
@@ -126,34 +147,4 @@ footer {
 .lang-switch button:hover {
   background: #420D09;
   color: #fff;
-}
-
-/* Overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: none;
-  z-index: 998;
-}
-
-.overlay.show {
-  display: block;
-}
-
-/* Perbaikan sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100%;
-  background: #420D09;
-  color: #fff;
-  padding-top: 60px;
-  transition: right 0.3s ease;
-  z-index: 999;
 }
