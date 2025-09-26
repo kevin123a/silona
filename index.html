@@ -15,11 +15,6 @@
       <img src="logo.png" alt="Logo Eucherius Familly" class="logo">
       <h1 class="brand">Eucherius Familly</h1>
     </div>
-    <div class="lang-flag">
-      <button class="lang-btn" data-lang="id">🇮🇩</button>
-      <button class="lang-btn" data-lang="en">🇬🇧</button>
-      <button class="lang-btn" data-lang="vn">🇻🇳</button>
-    </div>
     <button class="menu-toggle">☰</button>
   </header>
 
@@ -34,6 +29,14 @@
       <li><a href="contact.html" data-key="contact">Narahubung</a></li>
       <li><a href="staff.html" data-key="staff">Pengelola</a></li>
     </ul>
+    <div class="lang-select-container">
+      <label for="lang-select" style="margin-right:8px;">🌐</label>
+      <select id="lang-select">
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="vn">🇻🇳 Tiếng Việt</option>
+      </select>
+    </div>
   </nav>
 
   <!-- Content -->
@@ -101,16 +104,33 @@
       }
     };
 
+    // Bahasa default
+    let currentLang = "id";
+    const langSelect = document.getElementById('lang-select');
     // Ganti bahasa SEMUA elemen yg punya data-key
-    const langButtons = document.querySelectorAll('.lang-btn');
-    langButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.dataset.lang;
-        document.querySelectorAll('[data-key]').forEach(el => {
-          el.textContent = translations[lang][el.dataset.key];
-        });
+    function updateLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-key]').forEach(el => {
+        el.textContent = translations[lang][el.dataset.key];
       });
+      // Optional: Simpan preferensi bahasa di localStorage
+      localStorage.setItem('lang', lang);
+    }
+
+    // Event pilih bahasa
+    langSelect.addEventListener('change', (e) => {
+      updateLanguage(e.target.value);
     });
+
+    // Cek localStorage, kalau ada simpanan bahasa, pakai itu
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang && translations[savedLang]) {
+        langSelect.value = savedLang;
+        updateLanguage(savedLang);
+      }
+    });
+
   </script>
 </body>
 </html>
