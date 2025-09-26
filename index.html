@@ -14,26 +14,31 @@
       <h1 class="brand">De Yuwa</h1>
     </div>
     <div class="lang-flag">
-      <img src="flag-id.png" alt="Indonesia" class="flag">
+      <button class="lang-btn" data-lang="id">🇮🇩</button>
+      <button class="lang-btn" data-lang="en">🇬🇧</button>
+      <button class="lang-btn" data-lang="vn">🇻🇳</button>
     </div>
     <button class="menu-toggle">☰</button>
   </header>
 
+  <!-- Overlay untuk nutup menu -->
+  <div class="overlay" id="overlay"></div>
+
   <!-- Sidebar Menu -->
   <nav class="sidebar" id="sidebar">
     <ul>
-      <li><a href="#">Tentang Kami</a></li>
-      <li><a href="#">Visi - Misi</a></li>
-      <li><a href="#">Narahubung</a></li>
-      <li><a href="#">Pengelola</a></li>
+      <li><a href="#" data-key="about">Tentang Kami</a></li>
+      <li><a href="#" data-key="vision">Visi - Misi</a></li>
+      <li><a href="#" data-key="contact">Narahubung</a></li>
+      <li><a href="#" data-key="staff">Pengelola</a></li>
     </ul>
   </nav>
 
   <!-- Content -->
   <main>
     <section class="hero">
-      <h2>Selamat Datang di De Yuwa</h2>
-      <p>
+      <h2 data-key="welcome">Selamat Datang di De Yuwa</h2>
+      <p data-key="desc">
         De Yuwa adalah anak perusahaan PT Sinar Langit Hanoi di Indonesia.  
         Sebuah merek yang lahir dari semangat kolaborasi,  
         inovasi, dan keberanian untuk menghadirkan solusi strategis  
@@ -44,11 +49,6 @@
 
   <!-- Footer -->
   <footer>
-    <div class="lang-switch">
-      <button>ID</button>
-      <button>EN</button>
-      <button>VN</button>
-    </div>
     <p>© 2025 PT Sinar Langit Hanoi</p>
   </footer>
 
@@ -56,8 +56,16 @@
     // Menu toggle
     const toggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('#sidebar');
+    const overlay = document.querySelector('#overlay');
+
     toggle.addEventListener('click', () => {
       sidebar.classList.toggle('active');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('show');
     });
 
     // Tombol sementara "Sesaat lagi"
@@ -65,6 +73,47 @@
       link.addEventListener('click', e => {
         e.preventDefault();
         alert("Sesaat lagi...");
+        sidebar.classList.remove('active');
+        overlay.classList.remove('show');
+      });
+    });
+
+    // Terjemahan teks
+    const translations = {
+      id: {
+        welcome: "Selamat Datang di De Yuwa",
+        desc: "De Yuwa adalah anak perusahaan PT Sinar Langit Hanoi di Indonesia. Sebuah merek yang lahir dari semangat kolaborasi, inovasi, dan keberanian untuk menghadirkan solusi strategis demi kejayaan bangsa dan masyarakat.",
+        about: "Tentang Kami",
+        vision: "Visi - Misi",
+        contact: "Narahubung",
+        staff: "Pengelola"
+      },
+      en: {
+        welcome: "Welcome to De Yuwa",
+        desc: "De Yuwa is a subsidiary of PT Sinar Langit Hanoi in Indonesia. A brand born from the spirit of collaboration, innovation, and courage to deliver strategic solutions for the nation and society.",
+        about: "About Us",
+        vision: "Vision & Mission",
+        contact: "Contact",
+        staff: "Our Team"
+      },
+      vn: {
+        welcome: "Chào mừng đến với De Yuwa",
+        desc: "De Yuwa là công ty con của PT Sinar Langit Hanoi tại Indonesia. Một thương hiệu được sinh ra từ tinh thần hợp tác, đổi mới và dũng cảm để mang lại các giải pháp chiến lược cho quốc gia và xã hội.",
+        about: "Giới thiệu",
+        vision: "Tầm nhìn & Sứ mệnh",
+        contact: "Liên hệ",
+        staff: "Nhân sự"
+      }
+    };
+
+    // Ganti bahasa
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.querySelectorAll('[data-key]').forEach(el => {
+          el.textContent = translations[lang][el.dataset.key];
+        });
       });
     });
   </script>
