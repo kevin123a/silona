@@ -26,13 +26,13 @@
 
   <!-- Sidebar Menu -->
   <nav class="sidebar" id="sidebar">
-  <ul>
-    <li><a href="about.html">Tentang Kami</a></li>
-    <li><a href="vision.html">Visi - Misi</a></li>
-    <li><a href="contact.html">Narahubung</a></li>
-    <li><a href="staff.html">Pengelola</a></li>
-  </ul>
-</nav>
+    <ul>
+      <li><a href="about.html">Tentang Kami</a></li>
+      <li><a href="vision.html">Visi - Misi</a></li>
+      <li><a href="contact.html">Narahubung</a></li>
+      <li><a href="staff.html">Pengelola</a></li>
+    </ul>
+  </nav>
 
   <!-- Content -->
   <main>
@@ -65,11 +65,9 @@
       overlay.classList.remove('show');
     });
 
-    // Tombol sementara "Sesaat lagi"
+    // Supaya sidebar nutup setelah klik menu, TAPI navigasi tetap jalan
     document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        alert("Sesaat lagi...");
+      link.addEventListener('click', () => {
         sidebar.classList.remove('active');
         overlay.classList.remove('show');
       });
@@ -87,7 +85,7 @@
       },
       en: {
         welcome: "Welcome to website De Yuwa",
-        desc: "cooming soon",
+        desc: "coming soon",
         about: "About Us",
         vision: "Vision & Mission",
         contact: "Contact",
