@@ -3,26 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Visi & Misi - Eucherius Familly</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Visi & Misi - Eucherius Familly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "EB Garamond", serif;
+      background: #fff;
+      color: #800000;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #d4af37;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo { height: 42px; width: auto; }
+    .logo-title {
+      font-family: "Cinzel Decorative", serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: #800000;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      border: none;
+      background: none;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      z-index: 1201;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 28px;
+      background: #d4af37;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .nav-popup {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: #fff;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      padding: 16px 22px;
+      display: none;
+      z-index: 1200;
+      animation: fadeIn 0.25s ease-out;
+    }
+    .nav-popup.open { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .nav-popup ul { list-style: none; margin: 0; padding: 0; }
+    .nav-popup li { margin: 12px 0; }
+    .nav-popup a,
+    .nav-popup .translate-nav-item {
+      font-family: "Cinzel Decorative", serif;
+      font-size: 17px;
+      color: #800000;
+      padding: 6px 10px;
+      border-radius: 8px;
+      display: block;
+      transition: background 0.3s, color 0.3s;
+      text-decoration: none;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+    }
+    .nav-popup a:hover,
+    .nav-popup a.active,
+    .nav-popup .translate-nav-item:focus {
+      background: #d4af37;
+      color: #fff;
+    }
+    .nav-popup .translate-box {
+      margin: 0 !important;
+      padding: 0;
+    }
+    #google_translate_element select {
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 14px;
+      color: #800000;
+      background: #fff;
+      cursor: pointer;
+    }
+    .nav-popup .translate-box {
+      margin: 0;
+      padding: 0;
+    }
+    .nav-popup .translate-nav-item {
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: none;
+      cursor: default;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 750px;
+      margin: 60px auto 40px auto;
+      background: #fff;
+      padding: 44px 20px 32px 20px;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(212,175,55,0.05);
+    }
+    .main-content h2 {
+      font-family: "Cinzel Decorative", serif;
+      color: #800000;
+      font-size: 30px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .main-content h3 {
+      font-size: 21px;
+      margin: 25px 0 10px 0;
+      color: #800000;
+      font-family: "Cinzel Decorative", serif;
+      letter-spacing: 0.5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .main-content p {
+      font-size: 17px;
+      margin-bottom: 18px;
+      color: #800000;
+      text-align: justify;
+    }
+    .main-content ul {
+      margin-left: 20px;
+      color: #800000;
+    }
+    .main-content li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #fff;
+      color: #800000;
+      text-align: center;
+      padding: 18px 8px;
+      font-size: 15px;
+      border-top: 1.5px solid #d4af37;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      .main-content { padding: 20px 3vw 14px 3vw; }
+      .main-content h2 { font-size: 21px; }
+      .main-content h3 { font-size: 15px; }
+      .main-content p, .main-content li { font-size: 14px; }
+      .logo-title { font-size: 16px; }
+      #google_translate_element select { font-size: 12px; padding: 3px 6px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <div class="logo-container">
+    <div class="logo-area">
       <img src="logo.png" alt="Logo Eucherius Familly" class="logo">
-      <h1 class="brand">Visi & Misi</h1>
+      <h1 class="logo-title">Eucherius Familly</h1>
     </div>
-    <a href="index.html" class="menu-toggle" style="text-decoration:none;">←</a>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
-  <main>
-    <section class="hero">
-      <h2>Vision </h2>
-      <p>sesaat lagi</p>
-    </section>
-  </main>
+
+  <!-- Navigation Popup -->
+  <nav class="nav-popup">
+    <ul>
+      <li><a href="about.html">Tentang Kami</a></li>
+      <li><a href="vision.html" class="active">Visi - Misi</a></li>
+      <li><a href="contact.html">Narahubung</a></li>
+      <li><a href="staff.html">Pengelola</a></li>
+      <li><a href="halora.html">Halora Store</a></li>
+      <li><a href="minimalk.html">Minimal K Group</a></li>
+      <li><a href="minimals.html">Minimal SHP</a></li>
+      <li><a href="deyuwa.html">De Yuwa Group</a></li>
+      <li>
+        <div class="translate-box translate-nav-item" id="google_translate_element"></div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="main-content">
+    <h2>Visi &amp; Misi Eucherius Familly</h2>
+
+    <h3>Visi</h3>
+    <p>
+      Menjadi komunitas keluarga dan bisnis yang berpengaruh, inovatif, dan berlandaskan nilai kekeluargaan; mendorong pertumbuhan, kebaikan, dan kolaborasi lintas generasi di Indonesia serta Asia Tenggara.
+    </p>
+
+    <h3>Misi</h3>
+    <ul>
+      <li>Mengembangkan ekosistem yang mendukung pertumbuhan pribadi, profesional, dan spiritual anggota komunitas.</li>
+      <li>Mendorong terciptanya usaha-usaha baru yang berkelanjutan dan berdampak sosial.</li>
+      <li>Membangun jejaring dan kolaborasi dengan berbagai pihak, baik lokal maupun internasional.</li>
+      <li>Menggagas program-program yang berorientasi pada pendidikan, pemberdayaan, dan pengembangan kreativitas generasi muda.</li>
+      <li>Menjunjung tinggi nilai-nilai kekeluargaan, integritas, dan profesionalisme dalam setiap kegiatan.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 PT Sinar Langit Hanoi</p>
+    <p>&copy; 2025 PT Sinar Langit Hanoi. All Rights Reserved.</p>
   </footer>
+
+  <!-- Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navPopup = document.querySelector('.nav-popup');
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navPopup.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-popup a').forEach(link => {
+      link.addEventListener('click', () => {
+        navPopup.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (navPopup.classList.contains('open') && !navPopup.contains(e.target) && !hamburger.contains(e.target)) {
+        navPopup.classList.remove('open');
+      }
+    });
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'id',
+        includedLanguages: 'id,en,vi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
