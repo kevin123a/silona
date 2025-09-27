@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visi & Misi - Eucherius Familly</title>
+  <title>Narahubung - Eucherius Familly</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="logo.png">
   <style>
@@ -144,28 +144,34 @@
       letter-spacing: 1px;
       text-align: center;
     }
-    .main-content h3 {
-      font-size: 21px;
-      margin: 25px 0 10px 0;
-      color: #800000;
-      font-family: "Cinzel Decorative", serif;
-      letter-spacing: 0.5px;
-      text-align: center;
-      font-weight: bold;
-    }
     .main-content p {
       font-size: 17px;
       margin-bottom: 18px;
       color: #800000;
       text-align: justify;
     }
-    .main-content ul {
-      margin-left: 20px;
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px 0;
       color: #800000;
     }
-    .main-content li {
-      margin-bottom: 10px;
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
       font-size: 16px;
+      gap: 10px;
+    }
+    .contact-list .icon {
+      font-size: 20px;
+      width: 28px;
+      text-align: center;
+    }
+    .contact-list a {
+      color: #800000;
+      text-decoration: underline;
+      word-break: break-all;
     }
 
     footer {
@@ -181,8 +187,7 @@
     @media (max-width: 600px) {
       .main-content { padding: 20px 3vw 14px 3vw; }
       .main-content h2 { font-size: 21px; }
-      .main-content h3 { font-size: 15px; }
-      .main-content p, .main-content li { font-size: 14px; }
+      .contact-list li { font-size: 14px; }
       .logo-title { font-size: 16px; }
       #google_translate_element select { font-size: 12px; padding: 3px 6px; }
     }
@@ -205,8 +210,8 @@
   <nav class="nav-popup">
     <ul>
       <li><a href="about.html">Tentang Kami</a></li>
-      <li><a href="vision.html" class="active">Visi - Misi</a></li>
-      <li><a href="contact.html">Narahubung</a></li>
+      <li><a href="vision.html">Visi - Misi</a></li>
+      <li><a href="contact.html" class="active">Narahubung</a></li>
       <li><a href="staff.html">Pengelola</a></li>
       <li><a href="halora.html">Halora Store</a></li>
       <li><a href="minimalk.html">Minimal K Group</a></li>
@@ -220,21 +225,19 @@
 
   <!-- Main Content -->
   <section class="main-content">
-    <h2>Visi &amp; Misi Eucherius Familly</h2>
-
-    <h3>Visi</h3>
+    <h2>Narahubung</h2>
     <p>
-      Menjadi komunitas keluarga dan bisnis yang berpengaruh, inovatif, dan berlandaskan nilai kekeluargaan; mendorong pertumbuhan, kebaikan, dan kolaborasi lintas generasi di Indonesia serta Asia Tenggara.
+      Jika Anda ingin bergabung, bertanya, atau bekerjasama dengan Eucherius Familly, silakan hubungi kami melalui kontak berikut:
     </p>
-
-    <h3>Misi</h3>
-    <ul>
-      <li>Mengembangkan ekosistem yang mendukung pertumbuhan pribadi, profesional, dan spiritual anggota komunitas.</li>
-      <li>Mendorong terciptanya usaha-usaha baru yang berkelanjutan dan berdampak sosial.</li>
-      <li>Membangun jejaring dan kolaborasi dengan berbagai pihak, baik lokal maupun internasional.</li>
-      <li>Menggagas program-program yang berorientasi pada pendidikan, pemberdayaan, dan pengembangan kreativitas generasi muda.</li>
-      <li>Menjunjung tinggi nilai-nilai kekeluargaan, integritas, dan profesionalisme dalam setiap kegiatan.</li>
+    <ul class="contact-list">
+      <li><span class="icon">📞</span> <b>Telepon/WA:</b> <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></li>
+      <li><span class="icon">✉️</span> <b>Email:</b> <a href="mailto:info@eucheriusfamilly.id">info@eucheriusfamilly.id</a></li>
+      <li><span class="icon">📍</span> <b>Alamat:</b> Jl. Nakula, Tanjunganom, Nganjuk, Jawa Timur, Indonesia</li>
+      <li><span class="icon">🌐</span> <b>Instagram:</b> <a href="https://instagram.com/eucheriusfamilly" target="_blank">@eucheriusfamilly</a></li>
     </ul>
+    <p>
+      Kami akan dengan senang hati membantu Anda.
+    </p>
   </section>
 
   <!-- Footer -->
