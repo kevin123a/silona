@@ -4,149 +4,264 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eucherius Familly - PT Sinar Langit Hanoi</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "EB Garamond", serif;
+      background: #fff;
+      color: #800000;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #d4af37;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo { height: 42px; width: auto; }
+    .logo-title {
+      font-family: "Cinzel Decorative", serif;
+      font-size: 22px;
+      font-weight: bold;
+      color: #800000;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    /* ========================
+       Hamburger
+       ======================== */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      border: none;
+      background: none;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      z-index: 1201;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 28px;
+      background: #d4af37;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ========================
+       Navigation Popup
+       ======================== */
+    .nav-popup {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: #fff;
+      border: 2px solid #d4af37;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      padding: 16px 22px;
+      display: none;
+      z-index: 1200;
+      animation: fadeIn 0.25s ease-out;
+    }
+    .nav-popup.open { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .nav-popup ul { list-style: none; margin: 0; padding: 0; }
+    .nav-popup li { margin: 12px 0; }
+    .nav-popup a,
+    .nav-popup .translate-nav-item {
+      font-family: "Cinzel Decorative", serif;
+      font-size: 17px;
+      color: #800000;
+      padding: 6px 10px;
+      border-radius: 8px;
+      display: block;
+      transition: background 0.3s, color 0.3s;
+      text-decoration: none;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+    }
+    .nav-popup a:hover,
+    .nav-popup a.active,
+    .nav-popup .translate-nav-item:focus {
+      background: #d4af37;
+      color: #fff;
+    }
+    .nav-popup .translate-box {
+      margin: 0 !important;
+      padding: 0;
+    }
+    #google_translate_element select {
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 14px;
+      color: #800000;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .nav-popup .translate-box {
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-popup .translate-nav-item {
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: none;
+      cursor: default;
+    }
+
+    /* ========================
+       Hero Section
+       ======================== */
+    .hero {
+      flex: 1;
+      text-align: center;
+      padding: 80px 6vw 50px 6vw;
+    }
+    .hero h1 {
+      font-family: "Cinzel Decorative", serif;
+      font-size: 34px;
+      margin-bottom: 20px;
+      color: #800000;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+    .hero .tagline {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 18px auto;
+      color: #800000;
+    }
+    .hero .address {
+      font-size: 16px;
+      color: #333;
+    }
+
+    footer {
+      background: #fff;
+      color: #800000;
+      text-align: center;
+      padding: 18px 8px;
+      font-size: 15px;
+      border-top: 1.5px solid #d4af37;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 24px; }
+      .hero .tagline { font-size: 15px; }
+      .logo-title { font-size: 16px; }
+      #google_translate_element select { font-size: 12px; padding: 3px 6px; }
+    }
+  </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
-    <div class="logo-container">
+    <div class="logo-area">
       <img src="logo.png" alt="Logo Eucherius Familly" class="logo">
-      <h1 class="brand">Eucherius Familly</h1>
+      <h1 class="logo-title">Eucherius Familly</h1>
     </div>
-    <button class="menu-toggle">☰</button>
+
+    <!-- Hamburger -->
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <!-- Overlay untuk nutup menu -->
-  <div class="overlay" id="overlay"></div>
-
-  <!-- Sidebar Menu -->
-  <nav class="sidebar" id="sidebar">
+  <!-- Navigation Popup -->
+  <nav class="nav-popup">
     <ul>
-      <li><a href="about.html" data-key="about">Tentang Kami</a></li>
-      <li><a href="vision.html" data-key="vision">Visi - Misi</a></li>
-      <li><a href="contact.html" data-key="contact">Narahubung</a></li>
-      <li><a href="staff.html" data-key="staff">Pengelola</a></li>
-      <li><a href="halora.html" data-key="halora">Halora Store</a></li>
-      <li><a href="minimalk.html" data-key="minimalk">Minimal K Group</a></li>
-      <li><a href="minimals.html" data-key="minimals">Minimal SHP</a></li>
-      <li><a href="deyuwa.html" data-key="deyuwa">De Yuwa Group</a></li>
+      <li><a href="about.html">Tentang Kami</a></li>
+      <li><a href="vision.html">Visi - Misi</a></li>
+      <li><a href="contact.html">Narahubung</a></li>
+      <li><a href="staff.html">Pengelola</a></li>
+      <li><a href="halora.html">Halora Store</a></li>
+      <li><a href="minimalk.html">Minimal K Group</a></li>
+      <li><a href="minimals.html">Minimal SHP</a></li>
+      <li><a href="deyuwa.html">De Yuwa Group</a></li>
+      <li>
+        <div class="translate-box translate-nav-item" id="google_translate_element"></div>
+      </li>
     </ul>
-    <div class="lang-select-container">
-      <label for="lang-select" style="margin-right:8px;">🌐</label>
-      <select id="lang-select">
-        <option value="id">🇮🇩 Bahasa Indonesia</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="vn">🇻🇳 Tiếng Việt</option>
-      </select>
-    </div>
   </nav>
 
-  <!-- Content -->
-  <main>
-    <section class="hero">
-      <h2 data-key="welcome">Selamat Datang di website Eucherius Familly</h2>
-      <p data-key="desc">sesaat lagi !</p>
-    </section>
-  </main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Selamat Datang di website Eucherius Familly</h1>
+    <p class="tagline">
+      Website resmi Eucherius Familly, bagian dari PT Sinar Langit Hanoi. 
+      Kami hadir untuk tumbuh bersama dan memberi dampak positif melalui komunitas, bisnis, dan kreativitas lintas Asia Tenggara.
+    </p>
+    <p class="address">
+      Jl. Nakula, Tanjunganom, Nganjuk, Jawa Timur, Indonesia
+    </p>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 PT Sinar Langit Hanoi</p>
+    <p>&copy; 2025 PT Sinar Langit Hanoi. All Rights Reserved.</p>
   </footer>
 
+  <!-- Script -->
   <script>
-    // Menu toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('#sidebar');
-    const overlay = document.querySelector('#overlay');
+    const hamburger = document.querySelector('.hamburger');
+    const navPopup = document.querySelector('.nav-popup');
 
-    toggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('show');
+    // Toggle popup saat klik hamburger
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navPopup.classList.toggle('open');
     });
 
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-      overlay.classList.remove('show');
-    });
-
-    // Supaya sidebar nutup setelah klik menu, TAPI navigasi tetap jalan
-    document.querySelectorAll('nav a').forEach(link => {
+    // Tutup popup saat klik link menu
+    document.querySelectorAll('.nav-popup a').forEach(link => {
       link.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('show');
+        navPopup.classList.remove('open');
       });
     });
 
-    // Terjemahan teks
-    const translations = {
-      id: {
-        welcome: "Selamat Datang di website Eucherius Familly",
-        desc: "sesaat lagi",
-        about: "Tentang Kami",
-        vision: "Visi - Misi",
-        contact: "Narahubung",
-        staff: "Pengelola",
-        halora: "Halora Store",
-        minimalk: "Minimal K Group",
-        minimals: "Minimal SHP",
-        deyuwa: "De Yuwa Group"
-      },
-      en: {
-        welcome: "Welcome to the Eucherius Familly website",
-        desc: "coming soon",
-        about: "About Us",
-        vision: "Vision & Mission",
-        contact: "Contact",
-        staff: "Our Team",
-        halora: "Halora Store",
-        minimalk: "Minimal K Group",
-        minimals: "Minimal SHP",
-        deyuwa: "De Yuwa Group"
-      },
-      vn: {
-        welcome: "Chào mừng bạn đến với trang web Eucherius Familly",
-        desc: "sẽ đến sớm",
-        about: "Giới thiệu",
-        vision: "Tầm nhìn & Sứ mệnh",
-        contact: "Liên hệ",
-        staff: "Nhân sự",
-        halora: "Cửa hàng Halora",
-        minimalk: "Nhóm Minimal K",
-        minimals: "Minimal SHP",
-        deyuwa: "Nhóm De Yuwa"
+    // Tutup popup saat klik di luar menu/hamburger
+    document.addEventListener('click', (e) => {
+      if (navPopup.classList.contains('open') && !navPopup.contains(e.target) && !hamburger.contains(e.target)) {
+        navPopup.classList.remove('open');
       }
-    };
+    });
 
-    // Bahasa default
-    let currentLang = "id";
-    const langSelect = document.getElementById('lang-select');
-    // Ganti bahasa SEMUA elemen yg punya data-key
-    function updateLanguage(lang) {
-      currentLang = lang;
-      document.querySelectorAll('[data-key]').forEach(el => {
-        el.textContent = translations[lang][el.dataset.key];
-      });
-      // Optional: Simpan preferensi bahasa di localStorage
-      localStorage.setItem('lang', lang);
+    // Google Translate
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'id',
+        includedLanguages: 'id,en,vi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
-
-    // Event pilih bahasa
-    langSelect.addEventListener('change', (e) => {
-      updateLanguage(e.target.value);
-    });
-
-    // Cek localStorage, kalau ada simpanan bahasa, pakai itu
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('lang');
-      if (savedLang && translations[savedLang]) {
-        langSelect.value = savedLang;
-        updateLanguage(savedLang);
-      }
-    });
-
   </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
